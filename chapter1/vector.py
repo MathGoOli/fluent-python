@@ -27,6 +27,28 @@ class Vector:
 
     def __mul__(self, scalar):
         return Vector(self.x * scalar, self.y * scalar)
+    
+    def __neg__(self):
+        x = -self.x
+        y = -self.y
+        return Vector(x, y)
+    
+    def __lt__(self, other):
+        return abs(self) < abs(other)
+    def __le__(self, other):
+        return abs(self) <= abs(other)
+    
+    def __gt__(self, other):
+        return abs(self) > abs(other)
+    def __ge__(self, other):
+        return abs(self) >= abs(other)
+    
+    def __eq__(self, other):
+        return abs(self) == abs(other)
+
+    def __ne__(self, other):
+        return abs(self) != abs(other)
+
 
 if __name__ == "__main__":
     v1 = Vector(1,1)
@@ -46,5 +68,23 @@ if __name__ == "__main__":
 
     print('v1 bool: ', bool(v1))
     print('v0 bool: ', bool(v0))
+
+    # unary numeric operations
+    print('-v3: ', -v3)
+
+    # rich comparison
+    print('v1 < v3: ', v1 < v3)
+    print('v3 < v1: ', v3 < v1)
+    print('v1 > v3: ', v1 > v3)
+    print('v3 > v1: ', v3 > v1)
+    print('v3 == v1: ', v3 == v1)
+    print('v3 != v1: ', v3 != v1)
+    print('v3 == v3: ', v3 == v3)
+    print('v3 != v3: ', v3 != v3)
+
+
+
+
+
 
     
